@@ -1,3 +1,4 @@
+@first_test
 Feature:Podcast endpoint tests
 
   Background:
@@ -9,6 +10,7 @@ Feature:Podcast endpoint tests
     When path '/api/v1/podcasts'
     When method GET
     Then status 200
+
 
   Scenario: /me endpoint should return ok
     * print auth.token
