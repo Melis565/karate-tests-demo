@@ -1,0 +1,32 @@
+name: Run Tests
+
+# When to run this workflow
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+# Define the job
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Setup Maven
+      - name: Setup Maven
+        uses: actions/setup-java@v4
+        with:
+          java-version: '18'
+
+      # Install dependencies
+      - name: Install dependencies
+        run: mvn install
+
+      # Run tests
+      - name: Run tests
+        run: mvn test
