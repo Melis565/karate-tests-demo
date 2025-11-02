@@ -22,6 +22,8 @@ jobs:
         uses: actions/setup-java@v4
         with:
           java-version: '18'
+          distribution: 'temurin'
+          cache: maven
 
       # Install dependencies
       - name: Install dependencies
